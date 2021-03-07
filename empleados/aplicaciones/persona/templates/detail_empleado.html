@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ object.first_name }}
+{% endblock %}
+{% block contenido %}
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center" >
+            <div class="cell large-4 card" style="width: 300px;">
+              <div class="card-divider">
+                <h4>{{ object.get_job_display }}</h4> <!-- para cuando tenemos con choices -->
+              </div>
+                {% if empleado.avatar %}
+                    <img src="{{ object.avatar.url }}">
+                {% else %}
+                    <img src="{% static 'img/no_found.png' %}">
+                {% endif %}
+              <div class="card-section">
+                  <h4>{{ empleado.full_name }}</h4>
+                  <p><span class="label">Cargo</span></p>
+                  <p>{{ empleado.departamento }}</p>
+                  <p><span class="label">Habilidades</span></p>
+                  <ul class="vertical menu">
+                        {% for h in empleado.habilidades.all %}<!-- traigo el objeto con la lista de las habilidades-->
+                            <li>{{ h }}</li>
+                        {% endfor %}
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

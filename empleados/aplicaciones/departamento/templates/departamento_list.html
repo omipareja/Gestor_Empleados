@@ -1,0 +1,22 @@
+{% extends 'list.html' %}
+
+{% block buscador %}
+
+{% endblock %}
+
+{% block cabecera %}
+    <th width="150">ID</th>
+    <th width="150">Departamento</th>
+    <th width="150">Accion</th>
+
+{% endblock %}
+
+{% block cuerpo %}
+    {% for d in consulta %}
+    <tr>
+        <td>{{ d.id }}</td>
+        <td>{{ d.name }}</td>
+       <td><a class="button warning" href="{% url 'persona:area_empleado' d.name %}">ver</a></td>
+    </tr>
+    {% endfor %}
+{% endblock %}

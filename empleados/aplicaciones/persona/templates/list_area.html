@@ -1,0 +1,24 @@
+{% extends 'list.html' %}
+
+{% block buscador %}
+
+{% endblock %}
+
+{% block cabecera %}
+      <th width="150">ID</th>
+      <th width="150">Nombre</th>
+      <th width="150">Apellidos</th>
+      <th width="150">Departamento</th>
+{% endblock %}
+
+{% block cuerpo %}
+    {% for e in consulta %}
+    <tr>
+      <td>{{ e.id }}</td>
+      <td>{{ e.first_name}}</td>
+      <td>{{ e.last_name}}</td>
+      <td>{{ e.departamento}}</td>
+    </tr>
+    {% endfor %}
+
+{% endblock %}

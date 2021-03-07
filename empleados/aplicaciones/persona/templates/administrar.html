@@ -1,0 +1,23 @@
+{% extends 'list.html' %}
+
+{% block cabecera %}
+      <th width="150">ID</th>
+      <th width="150">Nombre</th>
+      <th width="150">Apellidos</th>
+      <th width="150">Departamento</th>
+      <th width="150">Accion</th>
+{% endblock %}
+
+{% block cuerpo %}
+    {% for e in consulta %}
+    <tr>
+      <td>{{ e.id }}</td>
+      <td>{{ e.first_name}}</td>
+      <td>{{ e.last_name}}</td>
+      <td>{{ e.departamento}}</td>
+        <td><a class="button warning" href="{% url 'persona:update' e.id %}">Editar</a></td>
+        <td><a class="button alert" href="{% url 'persona:delete' e.id %}">eliminar</a></td>
+    </tr>
+    {% endfor %}
+
+{% endblock %}
